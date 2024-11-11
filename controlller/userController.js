@@ -1,17 +1,17 @@
 const User = require("../model/user")
 
-module.exports.index = async (req, res) => {
-    try {
-        const allUsers = await User.find({})
-        console.log("allusers", allUsers)
-        res.status(200).json(allUsers)
-    } catch (err) {
-        console.error(err);
-        res.status(500).json({ message: "error fetching users" })
-    }
-}
+// module.exports.index = async (req, res) => {
+//     try {
+//         const allUsers = await User.find({})
+//         console.log("allusers", allUsers)
+//         res.status(200).json(allUsers)
+//     } catch (err) {
+//         console.error(err);
+//         res.status(500).json({ message: "error fetching users" })
+//     }
+// }
 
-module.exports.createNewForm = async (req, res) => {
+const createNewForm = async (req, res) => {
     try {
         const { name, email, contact_no } = req.body;
         const file = req.file;
@@ -33,4 +33,8 @@ module.exports.createNewForm = async (req, res) => {
         console.log(err);
         res.status(500).json({ message: err.message });
     }
+}
+
+module.exports={
+    createNewForm
 }

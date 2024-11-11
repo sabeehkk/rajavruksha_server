@@ -36,5 +36,5 @@ const createNewForm = async (req, res) => {
 }
 
 module.exports={
-    createNewForm
-}
+    createNewForm  
+} 

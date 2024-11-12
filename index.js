@@ -15,10 +15,10 @@ app.use(express.json());
 app.use(express.static("public"));
 app.use(express.static("uploads"));
 
-mongoose
-.connect(process.env.mongo_URL)
-.then(() => console.log("database connected"))
-.catch((err) => console.log(err));
+// mongoose
+// .connect(process.env.mongo_URL)
+// .then(() => console.log("database connected"))
+// .catch((err) => console.log(err));
 
 // Middleware  
 app.use(
@@ -26,7 +26,6 @@ app.use(
     origin: "http://localhost:3038",
   })
 );
-
 
 app.use('/',usersRouter)
 app.post("/careerForm", upload.single("file"), createNewForm);

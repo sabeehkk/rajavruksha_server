@@ -16,19 +16,11 @@ const {
 } = require("./controlller/contactController");
 // connect to db
 // const mongo_URL = 'mongodb://127.0.0.1:27017/Rajavruksha'
-const mongo_URL =
-  "mongodb+srv://enquiry:mHpnVFW1fNgdla8h@cluster0.osdmv.mongodb.net/";
-main()
-  .then(() => {
-    console.log("connected to db");
-  })
-  .catch((err) => {
-    console.log(err);
-  });
-
-async function main() {
-  await mongoose.connect(mongo_URL);
-}
+const mongo_URL = "mongodb+srv://enquiry:mHpnVFW1fNgdla8h@cluster0.osdmv.mongodb.net/";
+mongoose
+.connect(mongo_URL)
+.then(() => console.log("database connected"))
+.catch((err) => console.log(err));
 
 // Middleware
 app.use(
@@ -38,7 +30,7 @@ app.use(
 );
 app.use(express.json());
 app.use(express.static("public"));
-app.use(express.static("uploads")); // Serve uploaded files
+app.use(express.static("uploads"));
 
 app.get("/", (req, res) => {
   res.send("Hello, World!");

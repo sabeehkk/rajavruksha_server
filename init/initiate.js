@@ -10,15 +10,5 @@ main().then(() => {
     console.log(err)
 })
 
-async function main() {
-    await mongoose.connect(mongo_URL)
-}
 
-const initialiseData = async () => {
-    // await User.deleteMany({})
-    await User.insertMany(initData.data)
-    console.log('success')
-}
-
-// initialiseData();
 

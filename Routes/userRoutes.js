@@ -1,8 +1,9 @@
 const express = require("express")
 const router = express.Router()
+
 const usersController = require("../controlller/userController")
 
-router.post('/savecontact',usersController.contactMail)
+router.get("/careers",usersController.index);
 
 
-module.exports = router;  
+module.exports = router;

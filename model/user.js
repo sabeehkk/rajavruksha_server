@@ -1,24 +1,21 @@
-const { string } = require('joi');
-const mongoose=require('mongoose');
-const Schema=mongoose.Schema;
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
-const userSchema=new Schema({
-    name:{
-        type:String,
-        required:true
+const userSchema = new Schema({
+    name: {
+        type: String,
     },
-    email:{
-        type:String,
-        required:true,
+    email: {
+        type: String,
     },
-    file:{
-        filename:String,
+    file: {
+        url: String,
+        filename: String,
     },
-    contact_num:{
-        type:Number,
-        required:true
+    contact_no: {
+        type: Number,
     }
 })
 
-const User=mongoose.model('User',userSchema);
-module.exports=User;
+const User = mongoose.model('User', userSchema);
+module.exports = User;

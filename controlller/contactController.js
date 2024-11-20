@@ -9,13 +9,15 @@ module.exports.saveContactDetails = async (req, res) => {
         })
         console.log("new_contact", newContactDetail)
     } catch (err) {
-        console.log(err)
+        console.log(err) 
     }
 }
 
 module.exports.contactMail = async (req, res) => {
-    const { name, lastName, email, message, phone_no } = req.body;
+    console.log('function called');
     console.log("req_body", req.body)
+    
+    const { name, lastName, email, message, phone_no } = req.body;
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {

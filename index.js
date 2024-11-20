@@ -24,7 +24,8 @@ mongoose.connect(cluster_url)
 
 // Middleware
 app.use(cors({
-  origin: 'http://localhost:3038'
+  // origin: 'http://localhost:3038'
+  origin: 'https://rajavruksha-front-end-test.vercel.app'
 }));
 app.use(express.json());
 app.use(express.static('public'));

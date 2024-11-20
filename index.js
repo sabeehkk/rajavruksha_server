@@ -20,7 +20,8 @@ mongoose.connect(cluster_url)
     .then(() => console.log("Database connected"))
     .catch((err) => console.log(err));
 
-    
+
+
 // Middleware
 app.use(cors({
   // origin: 'http://localhost:3038'

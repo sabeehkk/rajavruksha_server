@@ -20,7 +20,7 @@ mongoose.connect(cluster_url)
     .then(() => console.log("Database connected"))
     .catch((err) => console.log(err));
 
-//changed background url
+
 
 // Middleware
 app.use(cors({

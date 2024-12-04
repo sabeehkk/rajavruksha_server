@@ -27,7 +27,7 @@ const cluster_url = 'mongodb+srv://enquiry:mHpnVFW1fNgdla8h@cluster0.osdmv.mongo
  
 // Middleware
 // app.use(cors({ origin: 'http://localhost:3038' }));
-app.use(cors({ origin: 'https://test.rajavrukshagroup.in' }));
+app.use(cors({ origin: 'https://rajavrukshagroup.in' }));
 app.use(express.json());
 app.use(express.static('public'));
   

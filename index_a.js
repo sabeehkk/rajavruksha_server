@@ -9,7 +9,6 @@ const usersRouter = require('./Routes/userRoutes');
 const contactRouter = require('./Routes/contactRoutes');
 const { createNewForm } = require('./controlller/userController');
 const { saveContactDetails, contactMail } = require('./controlller/contactController');
-const {careerDetails, getIndCareerDetails}=require("./controlller/careerController.js");
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,8 +37,6 @@ app.use('/', usersRouter);
 app.post('/careerForm', upload.single('file'), createNewForm);
 app.post('/savecontact', saveContactDetails);
 app.post('/contact', contactMail);
-app.get("/getCareerDetails",careerDetails);
-app.get("/getCareerIndDetails/:id",getIndCareerDetails);
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
 });   

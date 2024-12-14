@@ -16,7 +16,7 @@ module.exports.index = async (req, res) => {
 module.exports.createNewForm = async (req, res) => {
   console.log("Function called");
   try {
-    const { name, email, contact_no } = req.body;
+    const { name, email, contact_no, designation } = req.body;
     console.log(req.body, "Incoming data");
 
     const file = req.file;
@@ -24,18 +24,19 @@ module.exports.createNewForm = async (req, res) => {
       return res.status(400).json({ message: "Please upload a file." });
     }
 
-    const url = file.path; 
+    const url = file.path;
     const filename = file.filename;
 
     const newUser = new User({
       name,
       email,
       contact_no,
+      designation,
       file: { url, filename },
     });
-
-    console.log("New user:", newUser);
     await newUser.save();
+
+    console.log("new_user_saved",newUser)
 
     const recipientEmail = process.env.RECIPIENT_EMAIL;
     const recipientPass = process.env.RECIPIENT_PASS;
@@ -54,7 +55,7 @@ module.exports.createNewForm = async (req, res) => {
     });
 
     const mailOptions = {
-      from: `"Career Form" <${recipientEmail}>`, 
+      from: `"Career Form" <${recipientEmail}>`,
       to: recipientEmail,
       subject: `Form submitted from ${name}`,
       replyTo: email,
@@ -64,6 +65,7 @@ module.exports.createNewForm = async (req, res) => {
             <p><strong>Name:</strong> ${name}</p>
             <p><strong>Email:</strong> ${email}</p>
             <p><strong>Phone No:</strong> ${contact_no}</p>
+               <p><strong>Designation:</strong> ${designation}</p>
             <p>Please visit the link below to view the resume:</p>
             <p><a href="${url}" target="_blank">${url}</a></p>
           </div>

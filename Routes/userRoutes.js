@@ -7,5 +7,3 @@ router.get("/careers",usersController.index);
 
 
 module.exports = router;
-
-//new commit

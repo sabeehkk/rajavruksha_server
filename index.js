@@ -23,17 +23,12 @@ const cluster_url = 'mongodb+srv://enquiry:mHpnVFW1fNgdla8h@cluster0.osdmv.mongo
  
   mongoose.connect(cluster_url)
   .then(() => console.log("Database connected"))
-  .catch((err) => console.log(err));
+  .catch((err) => console.log(err)); 
 
  
 // Middleware
+app.use(cors({ origin: 'https://rajavrukshagroup.in' }));
 // app.use(cors({ origin: 'http://localhost:3038' }));
-// Enable CORS
-app.use(cors({
-  origin: 'https://rajavrukshagroup.in', // Replace with your frontend URL
-  credentials: true, // Allow cookies or authorization headers
-}));
-// app.use(cors({ origin: 'https://rajavrukshagroup.in' }));
 app.use(express.json());
 app.use(express.static('public'));
   
